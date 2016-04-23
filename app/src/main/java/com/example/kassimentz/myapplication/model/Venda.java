@@ -10,8 +10,9 @@ public class Venda {
     private int quantidade;
     private Produto produtos;
 
-    public Venda(){
-
+    public Venda(Produto produto, int quantidade){
+        this.produtos = produto;
+        this.quantidade = quantidade;
     }
 
     public double totalVenda(){

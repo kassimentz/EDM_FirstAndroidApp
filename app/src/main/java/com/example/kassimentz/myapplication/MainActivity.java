@@ -19,28 +19,13 @@ public class MainActivity extends AppCompatActivity {
         Log.i("out", "Hello World");
         System.out.println("Olá mundo!");
 
-        Produto shampoo = new Produto();
-        shampoo.setDescricao("shampoo anti caspa");
-        shampoo.setNome("Clear And Clean");
-        shampoo.setPreco(17.00);
+        Venda venda = new Venda(new Produto("Clear And Clean", 17.00),2);
 
-        Produto sabonete = new Produto();
-        sabonete.setDescricao("sabonete hidratante");
-        sabonete.setNome("Dove");
-        sabonete.setPreco(2.00);
-
-
-
-        Venda venda = new Venda();
-        venda.addProdutos(sabonete);
-        venda.setQuantidade(10);
 
         Log.i("Quantidade Venda 1", String.valueOf(venda.getQuantidade()));
         Log.i("Valor total Venda 1",String.valueOf(venda.totalVenda()));
 
-        Venda venda2 = new Venda();
-        venda2.addProdutos(shampoo);
-        venda2.setQuantidade(2);
+        Venda venda2 = new Venda(new Produto("Dove", 2.00),3);
 
         Log.i("Quantidade Venda 2", String.valueOf(venda2.getQuantidade()));
         Log.i("Valor total Venda 2",String.valueOf(venda2.totalVenda()));

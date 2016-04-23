@@ -6,11 +6,11 @@ package com.example.kassimentz.myapplication.model;
 public class Produto {
 
     private String nome;
-    private String descricao;
     private double preco;
 
-    public Produto(){
-
+    public Produto(String nome, double preco){
+        this.nome = nome;
+        this.preco = preco;
     }
 
     public String getNome() {
@@ -19,14 +19,6 @@ public class Produto {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
 
     public double getPreco() {
@@ -41,7 +33,6 @@ public class Produto {
     public String toString() {
         return "Produto{" +
                 "nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
                 ", preco=" + preco +
                 '}';
     }
