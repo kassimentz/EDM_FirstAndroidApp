@@ -1,5 +1,6 @@
 package com.example.kassimentz.myapplication.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,34 +8,41 @@ import java.util.List;
  */
 public class Venda {
 
-    private int quantidade;
-    private Produto produtos;
+    private List<Produto> listaProdutos;
+    private double frete;
 
-    public Venda(Produto produto, int quantidade){
-        this.produtos = produto;
-        this.quantidade = quantidade;
+    public Venda(){
+        listaProdutos = new ArrayList<>();
+        frete = 0;
     }
 
-    public double totalVenda(){
-        return produtos.getPreco() * quantidade;
+    public List<Produto> getListaProdutos() {
+        return listaProdutos;
     }
 
-    public int getQuantidade() {
-        return quantidade;
+    public double getFrete() {
+        return frete;
     }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setFrete(double _frete){
+        if(_frete < 0) throw new IllegalArgumentException("Valor deve ser maior que 0");
+        this.frete = _frete;
     }
 
-
-    public Produto getProdutos() {
-        return produtos;
+    public void addProduto(Produto p){
+        listaProdutos.add(p);
     }
 
-    public void addProdutos(Produto produtos) {
-        this.produtos = produtos;
+    public int getQuantidade(){
+        return listaProdutos.size();
     }
 
+    public double getTotal(){
+        double total = 0;
+        for(Produto p: listaProdutos)
+            total += p.getPreco();
+        total+= frete;
+        return(total);
+    }
 
 }

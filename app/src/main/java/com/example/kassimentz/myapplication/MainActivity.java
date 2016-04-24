@@ -16,20 +16,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.i("out", "Hello World");
-        System.out.println("Olá mundo!");
 
-        Venda venda = new Venda(new Produto("Clear And Clean", 17.00),2);
+        Venda v = new Venda();
+        v.addProduto(new Produto("cadeira", 30));
+        v.addProduto(new Produto("mesa", 120));
+        v.addProduto(new Produto("copos", 10));
+        try {
+            v.setFrete(-10);
+        }catch(IllegalArgumentException exc){
+            //Log.e("Error","Frete negativo!");
+            Log.getStackTraceString(exc);
+        }
 
-
-        Log.i("Quantidade Venda 1", String.valueOf(venda.getQuantidade()));
-        Log.i("Valor total Venda 1",String.valueOf(venda.totalVenda()));
-
-        Venda venda2 = new Venda(new Produto("Dove", 2.00),3);
-
-        Log.i("Quantidade Venda 2", String.valueOf(venda2.getQuantidade()));
-        Log.i("Valor total Venda 2",String.valueOf(venda2.totalVenda()));
-
-        Log.i("out","Teste");
+        Log.i("Quantidade", String.valueOf(v.getQuantidade()));
+        Log.i("Valor Total", String.valueOf(v.getTotal()));
+        Log.i("teste","Teste");
     }
 }
